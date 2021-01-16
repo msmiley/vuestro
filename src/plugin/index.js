@@ -33,7 +33,6 @@ import VuestroListItem from '../components/list/VuestroListItem';
 import VuestroMap from '../components/charts/VuestroMap';
 import VuestroModal from '../components/VuestroModal';
 import VuestroMultiSelect from '../components/inputs/VuestroMultiSelect';
-import VuestroNotifications from '../components/VuestroNotifications';
 import VuestroObjectBrowser from '../components/VuestroObjectBrowser';
 import VuestroPanel from '../components/VuestroPanel';
 import VuestroPill from '../components/VuestroPill';
