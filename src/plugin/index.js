@@ -13,7 +13,7 @@ import VuestroCode from '../components/text/VuestroCode';
 import VuestroContainer from '../components/containers/VuestroContainer';
 import VuestroCleanKvp from '../components/text/VuestroCleanKvp';
 import VuestroColorPicker from '../components/pickers/VuestroColorPicker';
-import VuestroConfirmDelete from '../components/VuestroConfirmDelete';
+import VuestroConfirm from '../components/VuestroConfirm';
 import VuestroDatePicker from '../components/pickers/VuestroDatePicker';
 import VuestroDropdown from '../components/VuestroDropdown';
 import VuestroDonutChart from '../components/charts/VuestroDonutChart';
@@ -71,7 +71,7 @@ export default {
     Vue.component(VuestroCard.name, VuestroCard);
     Vue.component(VuestroChartPanel.name, VuestroChartPanel);
     Vue.component(VuestroCheckOrX.name, VuestroCheckOrX);
-    Vue.component(VuestroConfirmDelete.name, VuestroConfirmDelete);
+    Vue.component(VuestroConfirm.name, VuestroConfirm);
     Vue.component(VuestroContainer.name, VuestroContainer);
     Vue.component(VuestroCleanKvp.name, VuestroCleanKvp);
     Vue.component(VuestroCode.name, VuestroCode);

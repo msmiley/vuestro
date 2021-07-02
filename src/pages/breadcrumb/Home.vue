@@ -15,7 +15,7 @@
             <vuestro-button round no-border @click="onEdit(item)">
               <vuestro-icon name="edit"></vuestro-icon>
             </vuestro-button>
-            <vuestro-confirm-delete></vuestro-confirm-delete>
+            <vuestro-confirm></vuestro-confirm>
           </template>
         </vuestro-table>
       </vuestro-panel>

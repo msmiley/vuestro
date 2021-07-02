@@ -1,13 +1,13 @@
 <template>
-  <vuestro-tooltip class="vuestro-confirm-delete" :position="position" click-to-open>
+  <vuestro-tooltip class="vuestro-confirm" :position="position" click-to-open>
     <template #default>
-      <vuestro-button :size="size" no-margin round no-border variant="danger">
+      <vuestro-button :size="size" no-margin round no-border :variant="variant">
         <vuestro-icon :name="icon"></vuestro-icon>
       </vuestro-button>
     </template>
     <template #content>
-      <div class="vuestro-confirm-delete-are-you-sure">
-        Are you sure?&nbsp;<vuestro-button pill variant="danger" @click="onConfirm" value>Yes</vuestro-button>
+      <div class="vuestro-confirm-content">
+        {{message}}&nbsp;<vuestro-button pill :variant="variant" @click="onConfirm" value>{{confirmText}}</vuestro-button>
       </div>
     </template>
   </vuestro-tooltip>
@@ -16,11 +16,14 @@
 <script>
 
 export default {
-  name: 'VuestroConfirmDelete',
+  name: 'VuestroConfirm',
   props: {
     size: { type: String, default: 'md'},
     icon: { type: String, default: 'trash'},
     position: { type: String, default: 'left'},
+    variant: { type: String, default: 'danger'},
+    message: { type: String, default: 'Are you sure?'},
+    confirmText: { type: String, default: 'Yes'}
   },
   methods: {
     onConfirm() {
@@ -33,7 +36,7 @@ export default {
 
 <style scoped>
 
-.vuestro-confirm-delete-are-you-sure {
+.vuestro-confirm-content {
   display: flex;
   white-space: nowrap;
   align-items: center;

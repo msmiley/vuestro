@@ -33,7 +33,7 @@
           <vuestro-button round no-border size="sm" @click="onEdit(i)">
             <vuestro-icon name="pen"></vuestro-icon>
           </vuestro-button>
-					<vuestro-confirm-delete @confirm="onDelete(i)"></vuestro-confirm-delete>
+					<vuestro-confirm @confirm="onConfirm(i)"></vuestro-confirm>
         </template>
       </vuestro-list-item>
     </vuestro-card>
@@ -111,7 +111,7 @@ export default {
     onEdit(i) {
       alert(`looks like you want to edit ${JSON.stringify(i)}`);
     },
-    onDelete(i) {
+    onConfirm(i) {
       alert(`looks like you want to delete ${JSON.stringify(i)}`);
     },
   },
