@@ -1,9 +1,9 @@
 <template>
   <span>
-    <template v-for="t in tokens">
-      <template v-if="t.type == 'plain'">{{ t.text }}</template>
+    <span v-for="(t, idx) in getTokens()" :key="idx">
+      <span v-if="t.type == 'plain'">{{ t.text }}</span>
       <span v-else-if="t.type == 'highlight'" class="vuestro-search-highlight">{{ t.text }}</span>
-    </template>
+    </span>
   </span>
 </template>
 
@@ -15,8 +15,8 @@ export default {
     searchTerm: { type: String, required: true }, // the search term
     sensitive: { type: Boolean, default: false }, // true for case-sensitive
   },
-  computed: {
-    tokens() {
+  methods: {
+    getTokens() {
       let text = this.$slots.default[0].text;
       if (text) {
         let regex;
