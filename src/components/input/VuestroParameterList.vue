@@ -223,15 +223,31 @@ export default {
 
 </script>
 
+<style>
+
+.vuestro-app {
+  --vuestro-parameter-list-item-margin: 0.2em 0.2em;
+  --vuestro-parameter-list-title-font-size: 1.05em;
+  --vuestro-parameter-list-title-font-weight: 500;
+  --vuestro-parameter-list-title-padding: 0.2em 0.4em;
+  --vuestro-parameter-list-type-font-size: 0.8em;
+  --vuestro-parameter-list-type-font-weight: 500;
+  --vuestro-parameter-list-description-font-size: 0.9em;
+}
+
+</style>
+
 <style scoped>
 
 .vuestro-parameter-list-item {
-  margin: 0.2em 0.2em;
+  margin: var(--vuestro-parameter-list-item-margin);
   border-radius: var(--vuestro-control-border-radius);
 }
 .vuestro-parameter-list-name {
-  padding: 0.2em 0.4em;
+  padding: var(--vuestro-parameter-list-title-padding);
   display: flex;
+  font-size: var(--vuestro-parameter-list-title-font-size);
+  font-weight: var(--vuestro-parameter-list-title-font-weight);
 }
 .vuestro-parameter-list-name > .vuestro-icon {
   margin-left: 0.1em;
@@ -241,8 +257,8 @@ export default {
 .vuestro-parameter-list-type {
   margin-left: auto;
   margin-right: 0.5em;
-  font-size: 0.8em;
-  font-weight: 700;
+  font-size: var(--vuestro-parameter-list-type-font-size);
+  font-weight: var(--vuestro-parameter-list-type-font-weight);
 }
 .vuestro-parameter-list-body {
   background-color: var(--vuestro-panel-bg);
@@ -254,7 +270,7 @@ export default {
   margin-bottom: 0.2em;
 }
 .vuestro-parameter-list-description {
-  font-size: 0.9em;
+  font-size: var(--vuestro-parameter-list-description-font-size);
   padding: 0.2em 0.4em;
 }
 
