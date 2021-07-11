@@ -33,7 +33,7 @@
 
       <vuestro-container>
         <vuestro-card cols="4">
-          <vuestro-panel style="--vuestro-panel-bg: var(--vuestro-purple); --vuestro-panel-fg: var(--vuestro-text-color-inverse)">
+          <vuestro-panel style="--vuestro-panel-bg: var(--vuestro-purple)">
             <vuestro-sidebar :routes="routes"></vuestro-sidebar>
           </vuestro-panel>
         </vuestro-card>

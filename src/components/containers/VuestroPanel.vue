@@ -50,7 +50,7 @@ export default {
     scroll: { type: Boolean, default: false },       // true for scrolling content
     frame: { type: Boolean, default: false },        // true for absolutely positioned content ("frame-mode")
     noBorder: { type: Boolean, default: false },     // true for no border
-    noStretch: { type: Boolean, default: false },     // true for disable flexbox-stretch  
+    noStretch: { type: Boolean, default: false },     // true for disable flexbox-stretch
     overflowHidden: { type: Boolean, default: false }, // true for overflow hidden on content
     draggable: { type: Boolean, default: false },    // true for .drag class and move cursor on title
     row: { type: Boolean, default: false },          // true for flexbox row mode instead of column
@@ -176,9 +176,6 @@ export default {
 .vuestro-panel-title {
   padding: 0.2em 0.4em;
   color: var(--vuestro-panel-toolbar-fg);
-}
-.vuestro-panel.dark .vuestro-panel-title {
-  color: var(--vuestro-text-color-inverse);
 }
 .vuestro-panel-toolbar {
   display: flex;

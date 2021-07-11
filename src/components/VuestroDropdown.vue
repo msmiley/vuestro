@@ -168,8 +168,6 @@ export default {
   --vuestro-dropdown-title-active-fg: var(--vuestro-gray-dark);
   --vuestro-dropdown-content-bg: var(--vuestro-popup-bg);
   --vuestro-dropdown-content-fg: var(--vuestro-popup-fg);
-  --vuestro-dropdown-buttons-bg: var(--vuestro-primary);
-  --vuestro-dropdown-buttons-fg: var(--vuestro-text-color-inverse);
   --vuestro-dropdown-min-width: 160px;
 }
 .vuestro-app.mobile {

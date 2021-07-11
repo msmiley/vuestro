@@ -69,7 +69,7 @@ export default {
 /* override these css vars to set style */
 .vuestro-app {
   --vuestro-modal-title-bg: var(--vuestro-dark);
-  --vuestro-modal-title-fg: var(--vuestro-text-color-inverse);
+  --vuestro-modal-title-fg: var(--vuestro-text-color-light);
   --vuestro-modal-content-bg: var(--vuestro-content-bg);
   --vuestro-modal-footer-bg: var(--vuestro-content-bg);
   --vuestro-modal-active-bg: rgba(0,0,0,0.5);
