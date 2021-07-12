@@ -40,7 +40,7 @@
           <template v-if="p.items === 'string'">
             <vuestro-container column content="stretch" gutter="none">
               <div class="vuestro-parameter-list-array-item"
-                   v-for="(item, idx) in value[p.field]" :key="idx">
+                   v-for="(item, idx) in getValueOrSetDefault(p)" :key="idx">
                 <vuestro-text-field variant="shaded"
                                     stretch
                                     auto-focus
@@ -64,7 +64,7 @@
         <vuestro-dropdown v-else-if="p.type === 'date'" stretch no-scroll>
           <template #button>
             <vuestro-button pill variant="text">
-              <template v-if="value[p.field]">{{ value[p.field] | vuestroIsoDate }}</template>
+              <template v-if="getValueOrSetDefault(p)">{{ getValueOrSetDefault(p) | vuestroIsoDate }}</template>
               <template v-else>Select Date...</template>
             </vuestro-button>
           </template>
@@ -83,14 +83,14 @@
                            overflow-hidden>
           <vuestro-button pill stretch no-margin
                           variant="success"
-                          :value="value[p.field]"
+                          :value="getValueOrSetDefault(p)"
                           @click="setField(p, true)">
             Yes
           </vuestro-button>
           <div style="width: 0.4em"></div>
           <vuestro-button pill stretch no-margin
                           variant="danger"
-                          :value="value[p.field] === false"
+                          :value="getValueOrSetDefault(p) === false"
                           @click="setField(p, false)">
             No
           </vuestro-button>
@@ -100,7 +100,7 @@
                           stretch close-on-content-click>
           <template #button>
             <vuestro-button pill value variant="info">
-              {{ value[p.field] || 'Select...' }}
+              {{ getValueOrSetDefault(p) || 'Select...' }}
             </vuestro-button>
           </template>
           <vuestro-list-button v-for="o in p.options" :key="o"
@@ -110,7 +110,7 @@
         </vuestro-dropdown>
         <vuestro-editor v-else-if="p.type === 'text'"
                         :options="editorOptions"
-                        :value="value[p.field]"
+                        :value="getValueOrSetDefault(p)"
                         @input="setField(p, ...arguments)">
         </vuestro-editor>
         <!--STRING/DEFAULT-->
@@ -119,7 +119,7 @@
                             size="md"
                             :readonly="readonly"
                             :validate="(v) => validate(p.type, v)"
-                            :value="value[p.field]"
+                            :value="getValueOrSetDefault(p)"
                             @input="setField(p, ...arguments)">
         </vuestro-text-field>
       </vuestro-container>
@@ -138,15 +138,19 @@ export default {
     value: { type: Object }, // the object these parameters will be set on
     readonly: { type: Boolean, default: false }, // true if parameters should be read only
     hideType: { type: Boolean, default: false }, // true to hide type (e.g. String, Number, etc)
-    parameters: { type: Array, required: true }, // the parameter list, schema:
-    //  [
-    //    {
-    //      title: '<the UI-friendly name>',
-    //      description: '<the UI-friendly description>',
-    //      field: '<the actual field name set in value object>',
-    //      type: 'string|number|option|boolean',
-    //      options: ['<array of strings, only for option type>'],
-    //  ]
+    parameters: { type: Array, required: true }, // the parameter list, with items with the following schema:
+    //  {
+    //    title: '<the UI-friendly name>',
+    //    description: '<the UI-friendly description>',
+    //    field: '<the actual field name set in value object>',
+    //    type: 'string|number|option|boolean|array|object',
+    //    icon: 'font awesome icon string',
+    //    options: ['<array of strings, only for option type>'],
+    //    items: ['calls out items for array or object, object items should be a nested parameter list'],
+    //    default: 'default value',
+    //    collapsible: true|false,
+    //    collapsed: true/false,
+    //  }
   },
   data() {
     return {
@@ -159,6 +163,15 @@ export default {
     };
   },
   methods: {
+    getValueOrSetDefault(param) {
+      if (this.value[param.field] !== undefined) {
+        return this.value[param.field];
+      } else if (param.default !== undefined) {
+        this.setField(param, param.default);
+      } else {
+        return null;
+      }
+    },
     setField(param, value) {
       let newVal = _.cloneDeep(this.value);
       // coerce value

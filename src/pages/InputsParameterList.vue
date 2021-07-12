@@ -47,12 +47,14 @@ export default {
           field: 'host',
           type: 'string',
           icon: 'server',
+          default: 'default-host',
         },
         {
           title: 'Port',
           description: 'The port of the server',
           field: 'port',
           type: 'number',
+          default: 80,
         },
         {
           title: 'Protocol',
@@ -60,6 +62,7 @@ export default {
           field: 'proto',
           type: 'option',
           options: ['tcp', 'http', 'https'],
+          // default: 'tcp',
         },
         {
           title: 'Enabled',
@@ -67,6 +70,7 @@ export default {
           field: 'enabled',
           type: 'boolean',
           icon: 'check',
+          default: true,
         },
         {
           title: 'Names',
@@ -76,6 +80,7 @@ export default {
           items: 'string',
           collapsible: true,
           collapsed: true,
+          default: ['one', 'two', 'three'],
         },
         {
           title: 'Start Date',
@@ -83,6 +88,7 @@ export default {
           field: 'date',
           type: 'date',
           icon: 'calendar',
+          default: '2021-03-04T12:00:00Z',
         },
         {
           title: 'Sub-Object',
@@ -114,6 +120,7 @@ export default {
           field: 'notes',
           type: 'text',
           icon: 'file-alt',
+          default: 'I can have a default value too!\n\n\nIsn\'t that cool?'
         },
       ],
       editorOptions: {
