@@ -10,6 +10,7 @@ module.exports = merge(baseWebpackConfig, {
   },
   devServer: {
     host: '0.0.0.0',
+    compress: true,
     historyApiFallback: true,
     contentBase: path.resolve('static'),
     publicPath: '/',
